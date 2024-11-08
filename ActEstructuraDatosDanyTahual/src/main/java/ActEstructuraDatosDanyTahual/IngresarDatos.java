@@ -10,7 +10,7 @@ package ActEstructuraDatosDanyTahual;
  */
 public class IngresarDatos {
     
-    private static int ultimoCodigo= 1; 
+    private static int ultimoCodigo= 0; 
     
     private int codigo; 
     private String Nombe; 
@@ -18,6 +18,9 @@ public class IngresarDatos {
     private String Puesto; 
     private double SueldoBase; 
     private double Bonificacion; 
+    private double Igss; 
+    private double SueldoLiquido; 
+
 
     public IngresarDatos(int codigo, String Nombe, String Apellido, String Puesto, double SueldoBase, double Bonificacion) {
         this.codigo = ++ultimoCodigo;
@@ -26,22 +29,16 @@ public class IngresarDatos {
         this.Puesto = Puesto;
         this.SueldoBase = SueldoBase;
         this.Bonificacion = Bonificacion;
+
     }
 
-    public static int getUltimoCodigo() {
-        return ultimoCodigo;
+    public IngresarDatos() {
+        this.codigo = ++ ultimoCodigo; 
     }
-
-    public static void setUltimoCodigo(int ultimoCodigo) {
-        IngresarDatos.ultimoCodigo = ultimoCodigo;
-    }
+    
 
     public int getCodigo() {
         return codigo;
-    }
-
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
     }
 
     public String getNombe() {
@@ -83,15 +80,18 @@ public class IngresarDatos {
     public void setBonificacion(double Bonificacion) {
         this.Bonificacion = Bonificacion;
     }
-
-    @Override
-    public String toString() {
-        return "IngresarDatos{" + "codigo=" + codigo + ", NombeCompleto=" + Nombe + Apellido  + ", SueldoBase=" + SueldoBase + ", Bonificacion=" + Bonificacion + '}';
+    
+    public double getIgss (){
+        Igss = getSueldoBase() * 0.0483;       
+        return Igss; 
     }
     
+    public double getSueldoLiquido (){
+        SueldoLiquido = getSueldoBase() + getBonificacion() - getIgss(); 
+        return SueldoLiquido; 
+    }
     
-            
-            
-    
+
+      
     
 }

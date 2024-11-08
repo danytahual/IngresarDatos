@@ -16,7 +16,9 @@ public class ActEstructuraDatos {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in); 
         int opcion = 0;
-           
+        
+        
+        
 
         do {
            
@@ -32,7 +34,11 @@ public class ActEstructuraDatos {
            
             switch (opcion) {
                 case 1:
+                     GestionarDatos.IngresoDeDatos(scanner);
                     break;
+                case 4:
+                    GestionarDatos.ListarEmpleados();
+                    break; 
                 case 5:
                     System.out.println("gracias por usar el sistema ");
                     break;
