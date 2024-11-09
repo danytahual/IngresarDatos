@@ -36,6 +36,12 @@ public class ActEstructuraDatos {
                 case 1:
                      GestionarDatos.IngresoDeDatos(scanner);
                     break;
+                case 2: 
+                     GestionarDatos.BucarEmpleado(scanner);
+                    break;
+                case 3: 
+                    GestionarDatos.modificardatos(scanner);
+                    break;
                 case 4:
                     GestionarDatos.ListarEmpleados();
                     break; 
